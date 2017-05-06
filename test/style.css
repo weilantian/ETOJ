@@ -1,0 +1,59 @@
+.header {
+    background: #0A0909;
+    width: 100%;
+    height: 50px;
+    position:relative;
+}
+
+
+
+/* ETOJ: */
+.header .title {
+font-family: DevanagariSangamMN;
+font-size: 30px;
+color: #FFFFFF;
+letter-spacing: -0.58px;
+position: absolute;  
+top: -10px; left: 30px; bottom: 0; right: 0; 
+}
+
+
+
+/* 英编社自用Python代码在线评测系统: */
+.header .small {
+    font-family: PingFangSC-Regular;
+font-size: 14px;
+color: #FFFFFF;
+letter-spacing: -0.23px;
+}
+
+
+
+.registerBtn {
+    border: 2px solid #EFEEEE;
+border-radius: 8px;
+}
+
+/* 登录: */
+.loginBtn .loginBtnText {
+    font-family: PingFangSC-Regular;
+font-size: 18px;
+color: #FFFFFF;
+letter-spacing: -0.29px;
+}
+
+
+
+/* Rectangle 2: */
+.loginBtn {
+background: #F9F7F7;
+border-radius: 8px;
+}
+
+/* 注册: */
+.registerBtn .registerBtnText {
+    font-family: PingFangSC-Regular;
+font-size: 18px;
+color: #000000;
+letter-spacing: -0.29px;
+}

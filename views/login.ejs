@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <% include header %>
+
+    <div class="container">
+      <h1 class="center-align">加入ETOJ</h1>
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s6"><a class="active" href="#test1">登录</a></li>
+            <li class="tab col s6"><a href="#test2">注册</a></li>
+          </ul>
+        </div>
+        <br>
+        <div id="test1" class="col s12">
+          <div class="row">
+            <br>
+            <form class="col s12">
+              <div class="card-panel">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="login_user" type="text" class="validate">
+                    <label for="login_user">你的名字</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="login_password" type="password" class="validate">
+                    <label for="login_password">密码</label>
+                  </div>
+                </div>
+
+
+              </div>
+              <a id="login_btn" class="waves-effect waves-light btn">登录</a>
+            </form>
+
+          </div>
+        </div>
+        <div id="test2" class="col s12">
+          <div class="row">
+            <br>
+            <form class="col s12">
+              <div class="card-panel">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="register_user" type="text" class="validate">
+                    <label for="password">你的名字</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="register_password" type="password" class="validate">
+                    <label for="register_password">密码</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="register_email" type="email" class="validate">
+                    <label for="register_email">邮箱</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="register_info" class="materialize-textarea"></textarea>
+                    <label for="register_info">简单介绍一下自己</label>
+                  </div>
+                </div>
+              </div>
+              <a class="waves-effect waves-light btn">注册</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <h4>提示</h4>
+      <p>用户名或者密码没有填写正确哦～～～</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">好的吧</a>
+    </div>
+  </div>
+
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+</body>
+
+
+<script>
+  $(document).ready(function () {
+    $('ul.tabs').tabs();
+
+  });
+  $("#login_btn").click(function () {
+    $("#login_btn").html("登录中...")
+    $("#login_btn").addClass("disabled")
+    if ($("#login_user").val() != "" && $("#login_password").val() != "") {
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://127.0.0.1:4000/users/auth/login",
+        "method": "POST",
+        "headers": {
+          "content-type": "application/x-www-form-urlencoded",
+          "cache-control": "no-cache",
+        },
+        "data": {
+          "name": $("#login_user").val(),
+          "age": "12",
+          "info": "lalala"
+        }
+      }
+
+      $.ajax(settings).done(function (response) {
+        if (response.status == "success") {
+           
+        } else if (response.status == "error") {
+
+        } else {
+
+        }
+      });
+    } else {
+       Materialize.toast('用户名或者密码没有填写哦～～', 4000)
+    }
+
+  })
+
+</script>
+
+</html>
